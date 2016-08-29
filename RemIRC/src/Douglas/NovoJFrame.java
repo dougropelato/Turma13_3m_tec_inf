@@ -33,11 +33,7 @@ public class NovoJFrame extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-<<<<<<< HEAD
-        jbFabricio = new javax.swing.JButton();
-=======
         jButton5 = new javax.swing.JButton();
->>>>>>> origin/master
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,11 +55,7 @@ public class NovoJFrame extends javax.swing.JFrame {
             }
         });
 
-<<<<<<< HEAD
-        jbFabricio.setText("Fabrico");
-=======
         jButton5.setText("Aline");
->>>>>>> origin/master
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,10 +76,6 @@ public class NovoJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addComponent(jButton3)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbFabricio)
-                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,15 +86,9 @@ public class NovoJFrame extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
-<<<<<<< HEAD
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
-                .addComponent(jbFabricio)
-                .addGap(31, 31, 31))
-=======
                 .addGap(68, 68, 68)
                 .addComponent(jButton5)
                 .addContainerGap(159, Short.MAX_VALUE))
->>>>>>> origin/master
         );
 
         pack();
@@ -160,10 +142,6 @@ public class NovoJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-<<<<<<< HEAD
-    private javax.swing.JButton jbFabricio;
-=======
     private javax.swing.JButton jButton5;
->>>>>>> origin/master
     // End of variables declaration//GEN-END:variables
 }
