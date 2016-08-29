@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Erickson;
+package Alan;
 
 /**
  *
- * @author erick
+ * @author M5L2
  */
 public class NovoJFrame extends javax.swing.JFrame {
 
