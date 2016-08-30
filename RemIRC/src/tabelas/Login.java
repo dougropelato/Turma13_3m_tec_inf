@@ -1,4 +1,4 @@
-package Lucas;
+package tabelas;
 
 public class Login {
 
