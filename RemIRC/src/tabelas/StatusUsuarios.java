@@ -9,6 +9,6 @@ package tabelas;
  *
  * @author CEDUP TIMBO
  */
-public class StatusUsuario {
+public class StatusUsuarios {
     
 }
