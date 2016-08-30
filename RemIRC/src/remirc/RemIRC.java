@@ -5,7 +5,7 @@
  */
 package remirc;
 
-import Douglas.NovoJFrame;
+
 
 /**
  *
@@ -17,7 +17,7 @@ public class RemIRC {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new NovoJFrame().setVisible(true);
+
     }
     
 }
