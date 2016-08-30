@@ -47,5 +47,5 @@ public class Login {
     public void setSenha_usuarios(String senha_usuarios) {
         this.senha_usuarios = senha_usuarios;
     }
-    
+
 }
