@@ -7,12 +7,13 @@ public class Usuarios {
     String email_usuarios;
     String apelido_usuarios;
     String foto_usuarios;
-    boolean sexo_usuarios;
+    int sexo_usuarios;
     int idade_usuarios;
-    int endereco_usuarios;
+    String endereco_usuarios;
     String humor_usuarios;
     int codigo_cidade;
     int estadocivil_usuarios;
+    String senha_usuarios;
 
     public int getCodigo_usuarios() {
         return codigo_usuarios;
@@ -54,11 +55,11 @@ public class Usuarios {
         this.foto_usuarios = foto_usuarios;
     }
 
-    public boolean isSexo_usuarios() {
+    public int isSexo_usuarios() {
         return sexo_usuarios;
     }
 
-    public void setSexo_usuarios(boolean sexo_usuarios) {
+    public void setSexo_usuarios(int sexo_usuarios) {
         this.sexo_usuarios = sexo_usuarios;
     }
 
@@ -70,11 +71,11 @@ public class Usuarios {
         this.idade_usuarios = idade_usuarios;
     }
 
-    public int getEndereco_usuarios() {
+    public String getEndereco_usuarios() {
         return endereco_usuarios;
     }
 
-    public void setEndereco_usuarios(int endereco_usuarios) {
+    public void setEndereco_usuarios(String endereco_usuarios) {
         this.endereco_usuarios = endereco_usuarios;
     }
 
@@ -100,6 +101,13 @@ public class Usuarios {
 
     public void setEstadocivil_usuarios(int estadocivil_usuarios) {
         this.estadocivil_usuarios = estadocivil_usuarios;
+    }
+    public String getSenha_usuarios() {
+        return senha_usuarios;
+    }
+
+    public void setSenha_usuarios(String senha_usuarios) {
+        this.senha_usuarios = senha_usuarios;
     }
     
 }

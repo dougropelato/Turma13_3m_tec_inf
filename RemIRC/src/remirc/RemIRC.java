@@ -5,6 +5,8 @@
  */
 package remirc;
 
+import formularios.Cadastro;
+
 
 
 /**
@@ -18,6 +20,8 @@ public class RemIRC {
      */
     public static void main(String[] args) {
 
+        new Cadastro().setVisible(true);
+        
     }
     
 }
