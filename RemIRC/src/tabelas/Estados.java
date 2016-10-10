@@ -1,26 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tabelas;
 
-/**
- *
- * @author ediof
- */
 public class Estados {
-    private String Cod_estados;
+    
+    private int Codigo_estados;
     private String Nome_estados;
     private String Sigla_estados;
     
  
-    public String getCod_estados() {
-        return Cod_estados;
+    public int getCodigo_estados() {
+        return Codigo_estados;
     }
 
-    public void setCod_estados(String cod_estados) {
-        this.Cod_estados = cod_estados;
+    public void setCodigo_estados(int codigo_estados) {
+        this.Codigo_estados = codigo_estados;
     }
 
     public String getNome_estados() {

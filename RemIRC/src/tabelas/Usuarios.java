@@ -12,7 +12,7 @@ public class Usuarios {
     String endereco_usuarios;
     String humor_usuarios;
     int codigo_cidade;
-    int estadocivil_usuarios;
+    int codigo_estados;
     String senha_usuarios;
 
     public int getCodigo_usuarios() {
@@ -95,19 +95,20 @@ public class Usuarios {
         this.codigo_cidade = codigo_cidade;
     }
 
-    public int getEstadocivil_usuarios() {
-        return estadocivil_usuarios;
-    }
-
-    public void setEstadocivil_usuarios(int estadocivil_usuarios) {
-        this.estadocivil_usuarios = estadocivil_usuarios;
-    }
     public String getSenha_usuarios() {
         return senha_usuarios;
     }
 
     public void setSenha_usuarios(String senha_usuarios) {
         this.senha_usuarios = senha_usuarios;
+    }
+
+    public int getCodigo_estados() {
+        return codigo_estados;
+    }
+
+    public void setCodigo_estados(int codigo_estados) {
+        this.codigo_estados = codigo_estados;
     }
     
 }

@@ -5,7 +5,12 @@
  */
 package remirc;
 
+import dao.GenericDao;
 import formularios.Cadastro;
+import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
+import java.util.List;
+import tabelas.Estados;
 
 
 
@@ -18,9 +23,11 @@ public class RemIRC {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException, InstantiationException {
 
-        new Cadastro().setVisible(true);
+        GenericDao g = new GenericDao();
+        List<Object> l = g.listar(Estados.class);
+        new Cadastro(l).setVisible(true);
         
     }
     
