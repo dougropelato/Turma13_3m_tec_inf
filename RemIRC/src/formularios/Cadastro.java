@@ -390,12 +390,10 @@ public class Cadastro extends javax.swing.JFrame {
         } else {
             sexo = 1;
         }
-
-        idade = jcId.getSelectedIndex() + 13;
-
-        u.setCodigo_cidade(jcCi.getSelectedIndex() + 1);
+        
+        u.setCodigo_cidades(jcCi.getSelectedIndex() + 1);
         u.setCodigo_estados(jcEc.getSelectedIndex() + 1);
-        u.setIdade_usuarios(idade);
+        u.setIdade_usuarios(jcId.getSelectedIndex() + 13);
         u.setSexo_usuarios(sexo);
 
         if (jtNo.getText().isEmpty() || jtAp.getText().isEmpty() || sen.isEmpty() || rsen.isEmpty() || jtEm.getText().isEmpty()) {
@@ -545,8 +543,8 @@ public class Cadastro extends javax.swing.JFrame {
 
         } else {
             String[] linha = new String[]{null};
-            for (int i = 0; i < l.size(); i++) {
-                Cidades e = (Cidades) l.get(i);
+            for (int i = 0; i < le.size(); i++) {
+                Cidades e = (Cidades) le.get(i);
                 String x = e.getNome_Cidades();
                 jcCi.addItem(x);
             }

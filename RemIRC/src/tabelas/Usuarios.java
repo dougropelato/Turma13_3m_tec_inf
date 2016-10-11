@@ -11,7 +11,7 @@ public class Usuarios {
     int idade_usuarios;
     String endereco_usuarios;
     String humor_usuarios;
-    int codigo_cidade;
+    int codigo_cidades;
     int codigo_estados;
     String senha_usuarios;
 
@@ -87,12 +87,12 @@ public class Usuarios {
         this.humor_usuarios = humor_usuarios;
     }
 
-    public int getCodigo_cidade() {
-        return codigo_cidade;
+    public int getCodigo_cidades() {
+        return codigo_cidades;
     }
 
-    public void setCodigo_cidade(int codigo_cidade) {
-        this.codigo_cidade = codigo_cidade;
+    public void setCodigo_cidades(int codigo_cidades) {
+        this.codigo_cidades = codigo_cidades;
     }
 
     public String getSenha_usuarios() {
