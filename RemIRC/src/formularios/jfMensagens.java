@@ -5,15 +5,29 @@
  */
 package formularios;
 
+import dao.GenericDao;
 import java.awt.event.KeyEvent;
+import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import tabelas.Mensagens;
+import tabelas.Usuarios;
 
 /**
  *
  * @author CEDUP TIMBO
  */
 public class jfMensagens extends javax.swing.JFrame {
-    String usuario = "";
+    int codigo_usuarios;
     String chat = "";
+    int codigo_salas;
+    String usuario;
+    int sair = 0;
+    
+    
+    
 
     /**
      * Creates new form jfMensagens
@@ -21,9 +35,39 @@ public class jfMensagens extends javax.swing.JFrame {
     public jfMensagens() {
         initComponents();
     }
-    public jfMensagens(String user) {
+    public jfMensagens(int user, int sala) {
         initComponents();
-        usuario = user;
+        codigo_usuarios = user;
+        codigo_salas = sala;
+        try {
+            GenericDao g = new GenericDao();
+            List<Object> lista = g.listar(Usuarios.class);
+             for(Object l : lista){
+                Usuarios u = (Usuarios) l;
+                if(u.getCodigo_usuarios()==codigo_usuarios){
+                    usuario = u.getApelido_usuarios();
+                    
+                }
+            Thread p = new Thread(new Processo(), "Atualizar");
+            p.start();
+        }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvocationTargetException ex) {
+            Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
 
@@ -37,46 +81,45 @@ public class jfMensagens extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTAsala = new javax.swing.JTextArea();
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jTextField2 = new javax.swing.JTextField();
+        jLsala = new javax.swing.JLabel();
+        jTFmensagem = new javax.swing.JTextField();
+        jLstatus = new javax.swing.JLabel();
+        jLicon = new javax.swing.JLabel();
+        jLusuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTAsala.setEditable(false);
+        jTAsala.setColumns(20);
+        jTAsala.setRows(5);
+        jScrollPane1.setViewportView(jTAsala);
 
         jButton1.setText("Emotion");
-
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("  SALA  ");
-        jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(204, 204, 204)));
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        jLabel2.setText("ICON");
-
-        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-        jScrollPane3.setWheelScrollingEnabled(false);
-
-        jTextArea3.setEditable(false);
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jTextArea3.setPreferredSize(new java.awt.Dimension(164, 34));
-        jScrollPane3.setViewportView(jTextArea3);
-
-        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField2KeyPressed(evt);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
+
+        jLsala.setBackground(new java.awt.Color(0, 0, 0));
+        jLsala.setText("  SALA  ");
+        jLsala.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(204, 204, 204)));
+        jLsala.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jTFmensagem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFmensagemKeyPressed(evt);
+            }
+        });
+
+        jLstatus.setText("0");
+
+        jLicon.setText("icon");
+
+        jLusuario.setText("usuario");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,20 +129,20 @@ public class jfMensagens extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTFmensagem)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1))
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addComponent(jLicon)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLusuario))
+                            .addComponent(jLsala))
+                        .addGap(0, 25, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -108,17 +151,18 @@ public class jfMensagens extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLsala, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLstatus)
+                        .addComponent(jLicon)
+                        .addComponent(jLusuario)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTFmensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -126,15 +170,19 @@ public class jfMensagens extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
+    private void jTFmensagemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFmensagemKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
 
-            chat = chat+"\r\n"+usuario+" : "+jTextField2.getText();
-            jTextArea1.setText(chat);
-            jTextField2.setText("");
-            jTextArea3.setText(usuario);
+            chat = chat+"\r\n"+usuario+" : "+jTFmensagem.getText();
+            jTAsala.setText(chat);
+            jTFmensagem.setText("");
+            jLusuario.setText(usuario);
         }
-    }//GEN-LAST:event_jTextField2KeyPressed
+    }//GEN-LAST:event_jTFmensagemKeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,16 +218,61 @@ public class jfMensagens extends javax.swing.JFrame {
             }
         });
     }
+     public class Processo implements Runnable {
+
+        @Override
+        public void run() {
+            try {
+                GenericDao gd = new GenericDao();
+                while(sair==0){
+                    Thread.sleep(500);
+                    List<Object> lista = gd.listar(Mensagens.class);
+                    for(Object l : lista){
+                        Mensagens m = (Mensagens) l;
+                        if(m.getCodigo_salas()==codigo_salas){
+                        
+                    
+                        }
+                    }
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (NoSuchMethodException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalArgumentException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InvocationTargetException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+                            
+                                
+                            
+                    
+                
+        }
+            
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLicon;
+    private javax.swing.JLabel jLsala;
+    private javax.swing.JLabel jLstatus;
+    private javax.swing.JLabel jLusuario;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextArea jTAsala;
+    private javax.swing.JTextField jTFmensagem;
     // End of variables declaration//GEN-END:variables
 }
