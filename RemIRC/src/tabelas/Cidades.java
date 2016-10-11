@@ -1,8 +1,7 @@
 package tabelas;
 
 public class Cidades {
-    
-<<<<<<< HEAD
+
     String CodigoCidades;
     String NomeCidades;
     String CepCidades;
@@ -40,7 +39,7 @@ public class Cidades {
         this.CodigoCidade = CodigoCidade;
     }
    
-=======
+
     int Codigo_Cidades;
     String Nome_Cidades;
     int Codigo_Estados;

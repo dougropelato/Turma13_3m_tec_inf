@@ -5,6 +5,8 @@
  */
 package formularios;
 
+import tabelas.Cidades;
+
 /**
  *
  * @author CEDUP TIMBO
@@ -27,21 +29,69 @@ public class CadastroCidades extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jtfNomeCidade = new javax.swing.JTextField();
+        jtfCepCidade = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+        getContentPane().add(jtfNomeCidade);
+        jtfNomeCidade.setBounds(100, 10, 110, 20);
+
+        jtfCepCidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfCepCidadeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jtfCepCidade);
+        jtfCepCidade.setBounds(100, 40, 110, 20);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(jComboBox1);
+        jComboBox1.setBounds(100, 70, 110, 20);
+
+        jLabel1.setText("Cidade:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(30, 14, 60, 14);
+
+        jLabel2.setText("Cep:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(40, 40, 30, 20);
+
+        jLabel3.setText("Estado:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(30, 70, 60, 20);
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(90, 110, 73, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jtfCepCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCepCidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfCepCidadeActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       Cidades c = new Cidades();
+        c.setNomeCidades(jtfNomeCidade.getText());
+        c.setCepCidades(jtfCepCidade.getText());
+        a.setTelefone_aluno(jtfTelefone.getText());
+        a.setTelefone_alternativo(jtfTelefoneAlternativo.getText());
+        String sa = jtfCidade.getSelectedItem().toString();
+        String sb =  sa.substring(0, 1);
+        a.setCodigo_cidade(Integer.parseInt(sb));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +129,12 @@ public class CadastroCidades extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField jtfCepCidade;
+    private javax.swing.JTextField jtfNomeCidade;
     // End of variables declaration//GEN-END:variables
 }
