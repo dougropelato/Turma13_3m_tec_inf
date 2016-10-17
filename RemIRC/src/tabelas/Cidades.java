@@ -1,46 +1,7 @@
 package tabelas;
 
 public class Cidades {
-    
-<<<<<<< HEAD
-    String CodigoCidades;
-    String NomeCidades;
-    String CepCidades;
-    String CodigoCidade;
-    
-    public String getCodigoCidades() {
-        return CodigoCidades;
-    }
-
-    public void setCodigoCidades(String CodigoCidades) {
-        this.CodigoCidades = CodigoCidades;
-    }
-
-    public String getNomeCidades() {
-        return NomeCidades;
-    }
-
-    public void setNomeCidades(String NomeCidades) {
-        this.NomeCidades = NomeCidades;
-    }
-
-    public String getCepCidades() {
-        return CepCidades;
-    }
-
-    public void setCepCidades(String CepCidades) {
-        this.CepCidades = CepCidades;
-    }
-
-    public String getCodigoCidade() {
-        return CodigoCidade;
-    }
-
-    public void setCodigoCidade(String CodigoCidade) {
-        this.CodigoCidade = CodigoCidade;
-    }
    
-=======
     int Codigo_Cidades;
     String Nome_Cidades;
     int Codigo_Estados;
@@ -68,6 +29,4 @@ public class Cidades {
     public void setCodigo_Estados(int Codigo_Estados) {
         this.Codigo_Estados = Codigo_Estados;
     }
-    
->>>>>>> origin/master
 }
