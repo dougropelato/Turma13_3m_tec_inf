@@ -1,6 +1,8 @@
 package formularios;
 
 import dao.GenericDao;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -19,6 +21,7 @@ public class CadastroCidades extends javax.swing.JFrame {
         
         initComponents();
         montaCombo(l);
+        centralizarForm();
         
     }
 
@@ -37,6 +40,11 @@ public class CadastroCidades extends javax.swing.JFrame {
         getContentPane().add(jtfNomeCidade);
         jtfNomeCidade.setBounds(100, 10, 110, 20);
 
+        jcEc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcEcActionPerformed(evt);
+            }
+        });
         getContentPane().add(jcEc);
         jcEc.setBounds(100, 40, 110, 20);
 
@@ -48,14 +56,14 @@ public class CadastroCidades extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(30, 40, 60, 20);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Adicionar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(90, 90, 73, 23);
+        jButton1.setBounds(90, 90, 90, 23);
 
         pack();
         setLocationRelativeTo(null);
@@ -82,6 +90,10 @@ public class CadastroCidades extends javax.swing.JFrame {
             
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jcEcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcEcActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcEcActionPerformed
 
     public static void main(String args[]) {
         
@@ -133,12 +145,17 @@ public class CadastroCidades extends javax.swing.JFrame {
         } else {
             String[] linha = new String[]{null, null};
             for (int i = 0; i < l.size(); i++) {
-                Estados e = (Estados) l.get(i);
-                String x = e.getNome_estados();
-                String y = e.getSigla_estados();
+                Estados est = (Estados) l.get(i);
+                String x = est.getNome_estados();
+                String y = est.getSigla_estados();
                 jcEc.addItem(y + " - " + x);
             }
         }
         
+    }
+    private void centralizarForm() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
     }
 }
