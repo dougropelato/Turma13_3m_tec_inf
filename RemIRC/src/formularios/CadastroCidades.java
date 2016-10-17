@@ -1,6 +1,10 @@
 package formularios;
 
+import dao.GenericDao;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import tabelas.Cidades;
 import tabelas.Estados;
@@ -61,6 +65,21 @@ public class CadastroCidades extends javax.swing.JFrame {
         
         Cidades c = new Cidades();
         c.setNome_Cidades(jtfNomeCidade.getText());
+        
+        
+        try {
+           GenericDao gd = new GenericDao();
+           gd.adicionar(c);
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroCidades.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CadastroCidades.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(CadastroCidades.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(CadastroCidades.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
