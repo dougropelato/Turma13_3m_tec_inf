@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import tabelas.Cidades;
 import tabelas.Estados;
 import tabelas.Usuarios;
+import tabelas.login_usuarios;
 
 public class Cadastro extends javax.swing.JFrame {
 
@@ -364,6 +365,8 @@ public class Cadastro extends javax.swing.JFrame {
     private void jbCaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCaActionPerformed
 
         Usuarios u = new Usuarios();
+        login_usuarios lu = new login_usuarios();
+        
 
         u.setApelido_usuarios(jtAp.getText());
         u.setEmail_usuarios(jtEm.getText());
@@ -400,6 +403,8 @@ public class Cadastro extends javax.swing.JFrame {
         u.setCodigo_estados(jcEc.getSelectedIndex() + 1);
         u.setIdade_usuarios(jcId.getSelectedIndex() + 13);
         u.setSexo_usuarios(sexo);
+        
+        lu.setLogin_usuarios(jtNo.getText());
 
         if (jtNo.getText().isEmpty() || jtAp.getText().isEmpty() || sen.isEmpty() || rsen.isEmpty() || jtEm.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Algum campo obrigatório está vazio!", " Ops!", 0);
@@ -409,6 +414,7 @@ public class Cadastro extends javax.swing.JFrame {
 
                 GenericDao g = new GenericDao();
                 g.adicionar(u);
+                g.adicionar(lu);
 
             } catch (SQLException ex) {
                 Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
