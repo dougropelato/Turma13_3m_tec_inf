@@ -200,6 +200,11 @@ public class Cadastro extends javax.swing.JFrame {
 
         jcCi.setBackground(new java.awt.Color(204, 204, 204));
         jcCi.setFont(new java.awt.Font("Swis721 Cn BT", 0, 14)); // NOI18N
+        jcCi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcCiActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -446,6 +451,10 @@ public class Cadastro extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jbFoActionPerformed
+
+    private void jcCiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcCiActionPerformed
 
     public static void main(String args[]) {
 

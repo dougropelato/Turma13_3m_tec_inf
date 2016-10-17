@@ -1,6 +1,7 @@
 package tabelas;
 
 public class Cidades {
+<<<<<<< HEAD
 
     String CodigoCidades;
     String NomeCidades;
@@ -40,6 +41,9 @@ public class Cidades {
     }
    
 
+=======
+   
+>>>>>>> origin/master
     int Codigo_Cidades;
     String Nome_Cidades;
     int Codigo_Estados;
@@ -67,6 +71,4 @@ public class Cidades {
     public void setCodigo_Estados(int Codigo_Estados) {
         this.Codigo_Estados = Codigo_Estados;
     }
-    
->>>>>>> origin/master
 }
