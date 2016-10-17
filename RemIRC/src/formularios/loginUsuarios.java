@@ -2,11 +2,14 @@ package formularios;
 
 import dao.GenericDao;
 import java.lang.reflect.InvocationTargetException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import tabelas.Login;
+import tabelas.login_usuarios;
 
 public class loginUsuarios extends javax.swing.JFrame {
 
@@ -137,18 +140,29 @@ public class loginUsuarios extends javax.swing.JFrame {
         GenericDao g;
         try {
             g = new GenericDao();
-            List<Object> l = g.listar(Login.class); // ---------------------------
+            List<Object> l = g.listar(login_usuarios.class); // ---------------------------
             for (Object o : l) { // ---------------------------------------- Método LISTAR
-                Login c = (Login) o; // --------------------------------------
+                login_usuarios c = (login_usuarios) o; // --------------------------------------
 
-                if ((c.getLogin_usuarios().equals(jtfLogin_usuarios.getText())) && ((c.getSenha_usuarios()).equals(jpfSenha_usuarios.getText()))) { //Compara o usuario do campo com o bd
-                    int user;
-                    this.dispose();
+                String s = jpfSenha_usuarios.getText();
+                MessageDigest m;
+                try {
+                    m = MessageDigest.getInstance("MD5");
+                    m.update(s.getBytes(), 0, s.length());
+                    String smd5 = new BigInteger(1, m.digest()).toString(16);
+                 
+                if ((c.getLogin_usuarios().equals(jtfLogin_usuarios.getText())) && smd5.equals(jpfSenha_usuarios.getText())) { //Compara o usuario do campo com o bd
 
-                         //muda para tela desejada
-                        System.out.println("entrou if 1");
-                    
+                    //muda para tela desejada
+                    System.out.println("Funciona!");
+
                 }
+                    
+                } catch (NoSuchAlgorithmException ex) {
+                    Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                
             }
 
         } catch (SQLException ex) {

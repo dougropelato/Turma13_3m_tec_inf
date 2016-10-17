@@ -1,6 +1,6 @@
 package tabelas;
 
-public class Login {
+public class login_usuarios {
 
     private int codigo_login_usuarios;
     private int codigo_usuarios;
