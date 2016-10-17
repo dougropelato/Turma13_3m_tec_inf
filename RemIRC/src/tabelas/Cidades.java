@@ -1,7 +1,7 @@
 package tabelas;
 
 public class Cidades {
-   
+
     int Codigo_Cidades;
     String Nome_Cidades;
     int Codigo_Estados;
