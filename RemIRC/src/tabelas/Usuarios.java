@@ -7,7 +7,7 @@ public class Usuarios {
     String email_usuarios;
     String apelido_usuarios;
     String foto_usuarios;
-    int sexo_usuarios;
+    String sexo_usuarios;
     int idade_usuarios;
     String endereco_usuarios;
     String humor_usuarios;
@@ -55,11 +55,11 @@ public class Usuarios {
         this.foto_usuarios = foto_usuarios;
     }
 
-    public int isSexo_usuarios() {
+    public String getSexo_usuarios() {
         return sexo_usuarios;
     }
 
-    public void setSexo_usuarios(int sexo_usuarios) {
+    public void setSexo_usuarios(String sexo_usuarios) {
         this.sexo_usuarios = sexo_usuarios;
     }
 

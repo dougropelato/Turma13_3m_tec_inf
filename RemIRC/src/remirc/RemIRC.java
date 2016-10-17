@@ -30,9 +30,9 @@ public class RemIRC {
         GenericDao g = new GenericDao();
         List<Object> l = g.listar(Estados.class);
         List<Object> le = g.listar (Cidades.class);
-        //new Cadastro(l, le).setVisible(true);
+        new Cadastro(l, le).setVisible(true);
         
-        new CadastroCidades(l).setVisible(true);
+        //new CadastroCidades(l).setVisible(true);
         
     }
     

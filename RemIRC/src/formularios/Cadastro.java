@@ -365,7 +365,6 @@ public class Cadastro extends javax.swing.JFrame {
     private void jbCaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCaActionPerformed
 
         Usuarios u = new Usuarios();
-        login_usuarios lu = new login_usuarios();
 
         u.setApelido_usuarios(jtAp.getText());
         u.setEmail_usuarios(jtEm.getText());
@@ -383,7 +382,6 @@ public class Cadastro extends javax.swing.JFrame {
                 m.update(s.getBytes(), 0, s.length());
                 String smd5 = new BigInteger(1, m.digest()).toString(16);
                 u.setSenha_usuarios(smd5);
-                lu.setSenha_usuarios(smd5);
             } catch (NoSuchAlgorithmException ex) {
                 Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -393,18 +391,10 @@ public class Cadastro extends javax.swing.JFrame {
             jpSe.setText("");
         }
 
-        if (jcSe.getSelectedIndex() == 0) {
-            sexo = 0;
-        } else {
-            sexo = 1;
-        }
-
         u.setCodigo_cidades(jcCi.getSelectedIndex() + 1);
         u.setCodigo_estados(jcEc.getSelectedIndex() + 1);
         u.setIdade_usuarios(jcId.getSelectedIndex() + 13);
-        u.setSexo_usuarios(sexo);
-
-        lu.setLogin_usuarios(jtNo.getText());
+        u.setSexo_usuarios(jcSe.getName());
 
         if (jtNo.getText().isEmpty() || jtAp.getText().isEmpty() || sen.isEmpty() || rsen.isEmpty() || jtEm.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Algum campo obrigatório está vazio!", " Ops!", 0);
@@ -414,7 +404,6 @@ public class Cadastro extends javax.swing.JFrame {
 
                 GenericDao g = new GenericDao();
                 g.adicionar(u);
-                g.adicionar(lu);
 
             } catch (SQLException ex) {
                 Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
