@@ -366,7 +366,6 @@ public class Cadastro extends javax.swing.JFrame {
 
         Usuarios u = new Usuarios();
         login_usuarios lu = new login_usuarios();
-        
 
         u.setApelido_usuarios(jtAp.getText());
         u.setEmail_usuarios(jtEm.getText());
@@ -384,6 +383,7 @@ public class Cadastro extends javax.swing.JFrame {
                 m.update(s.getBytes(), 0, s.length());
                 String smd5 = new BigInteger(1, m.digest()).toString(16);
                 u.setSenha_usuarios(smd5);
+                lu.setSenha_usuarios(smd5);
             } catch (NoSuchAlgorithmException ex) {
                 Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -398,12 +398,12 @@ public class Cadastro extends javax.swing.JFrame {
         } else {
             sexo = 1;
         }
-        
+
         u.setCodigo_cidades(jcCi.getSelectedIndex() + 1);
         u.setCodigo_estados(jcEc.getSelectedIndex() + 1);
         u.setIdade_usuarios(jcId.getSelectedIndex() + 13);
         u.setSexo_usuarios(sexo);
-        
+
         lu.setLogin_usuarios(jtNo.getText());
 
         if (jtNo.getText().isEmpty() || jtAp.getText().isEmpty() || sen.isEmpty() || rsen.isEmpty() || jtEm.getText().isEmpty()) {
@@ -449,13 +449,13 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jpSeActionPerformed
 
     private void jbFoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFoActionPerformed
-        
+
         try {
             Runtime.getRuntime().exec("explorer c:\\");
         } catch (IOException ex) {
             Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_jbFoActionPerformed
 
     private void jcCiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCiActionPerformed
@@ -537,9 +537,9 @@ public class Cadastro extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void montaCombo(List<Object> l, List<Object> le) {
-        
+
         if (l.isEmpty()) {
-            
+
             JOptionPane.showMessageDialog(null, "Nada cadastrado");
 
         } else {
@@ -551,9 +551,9 @@ public class Cadastro extends javax.swing.JFrame {
                 jcEc.addItem(y + " - " + x);
             }
         }
-        
+
         if (le.isEmpty()) {
-            
+
             JOptionPane.showMessageDialog(null, "Nada cadastrado");
 
         } else {
@@ -564,6 +564,6 @@ public class Cadastro extends javax.swing.JFrame {
                 jcCi.addItem(x);
             }
         }
-        
+
     }
 }
