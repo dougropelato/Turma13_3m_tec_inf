@@ -16,8 +16,7 @@ public class Mensagens {
     public int codigo_usuarios_destino;
     public String data_envio_mensagens;
     public String hora_envio_mensagens;
-    public String data_recebimento_mensagens;
-    public String hora_recebimento_mensagens;
+    public String mensagens;
 
     public int getCodigo_mensagens() {
         return codigo_mensagens;
@@ -67,20 +66,12 @@ public class Mensagens {
         this.hora_envio_mensagens = hora_envio_mensagens;
     }
 
-    public String getData_recebimento_mensagens() {
-        return data_recebimento_mensagens;
+    public String getmensagens() {
+        return mensagens;
     }
 
-    public void setData_recebimento_mensagens(String data_recebimento_mensagens) {
-        this.data_recebimento_mensagens = data_recebimento_mensagens;
-    }
-
-    public String getHora_recebimento_mensagens() {
-        return hora_recebimento_mensagens;
-    }
-
-    public void setHora_recebimento_mensagens(String hora_recebimento_mensagens) {
-        this.hora_recebimento_mensagens = hora_recebimento_mensagens;
+    public void setmensagens(String mensagens) {
+        this.mensagens = mensagens;
     }
     
 }
