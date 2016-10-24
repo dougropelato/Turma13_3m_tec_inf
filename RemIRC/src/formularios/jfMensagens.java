@@ -120,6 +120,7 @@ public class jfMensagens extends javax.swing.JFrame {
 
         jLstatus.setText("0");
 
+        jLicon.setIcon(http://pre14.deviantart.net/c047/th/pre/f/2011/046/8/0/macac_by_benegg1-d39mfav.jpg);
         jLicon.setText("icon");
 
         jLusuario.setText("usuario");
@@ -177,6 +178,7 @@ public class jfMensagens extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
             Calendar c = Calendar.getInstance();
             System.out.println(c.get(Calendar.DAY_OF_MONTH)+"/"+((c.get(Calendar.MONTH))+1)+"/"+c.get(Calendar.YEAR));
+            System.out.println(""+c.get(Calendar.HOUR_OF_DAY)+":"+c.get(Calendar.MINUTE));
             
             
             try {
@@ -187,7 +189,7 @@ public class jfMensagens extends javax.swing.JFrame {
                 m.setCodigo_usuarios_destino(codigo_salas);
                 m.setCodigo_usuarios_origem(codigo_usuarios);
                 m.setData_envio_mensagens(c.get(Calendar.DAY_OF_MONTH)+"/"+c.get(Calendar.MONTH)+"/"+c.get(Calendar.YEAR));
-                
+                m.setHora_envio_mensagens(""+c.get(Calendar.HOUR_OF_DAY));
                
             } catch (SQLException ex) {
                 Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);

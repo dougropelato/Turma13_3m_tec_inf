@@ -129,6 +129,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLicon">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="http://pre14.deviantart.net/c047/th/pre/f/2011/046/8/0/macac_by_benegg1-d39mfav.jpg" type="code"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="icon"/>
       </Properties>
     </Component>
