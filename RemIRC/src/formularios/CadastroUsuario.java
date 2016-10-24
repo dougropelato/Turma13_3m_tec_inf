@@ -16,14 +16,14 @@ import tabelas.Estados;
 import tabelas.Usuarios;
 import tabelas.login_usuarios;
 
-public class Cadastro extends javax.swing.JFrame {
+public class CadastroUsuario extends javax.swing.JFrame {
 
-    public Cadastro() {
+    public CadastroUsuario() {
         super("Re-MIRC");
         initComponents();
     }
 
-    public Cadastro(List<Object> l, List<Object> le) {
+    public CadastroUsuario(List<Object> l, List<Object> le) {
         initComponents();
         montaCombo(l, le);
     }
@@ -383,7 +383,7 @@ public class Cadastro extends javax.swing.JFrame {
                 String smd5 = new BigInteger(1, m.digest()).toString(16);
                 u.setSenha_usuarios(smd5);
             } catch (NoSuchAlgorithmException ex) {
-                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             JOptionPane.showMessageDialog(null, "As senhas não conferem!", " Ops!", 0);
@@ -406,13 +406,13 @@ public class Cadastro extends javax.swing.JFrame {
                 g.adicionar(u);
 
             } catch (SQLException ex) {
-                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalArgumentException ex) {
-                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalAccessException ex) {
-                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             JOptionPane.showMessageDialog(null, "Você foi cadastrado com sucesso, muito obrigado!", " Sucesso!", 1);
@@ -442,7 +442,7 @@ public class Cadastro extends javax.swing.JFrame {
         try {
             Runtime.getRuntime().exec("explorer c:\\");
         } catch (IOException ex) {
-            Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_jbFoActionPerformed
@@ -465,20 +465,22 @@ public class Cadastro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cadastro().setVisible(true);
+                new CadastroUsuario().setVisible(true);
             }
         });
     }

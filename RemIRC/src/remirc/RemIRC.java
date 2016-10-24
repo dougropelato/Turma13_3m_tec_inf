@@ -6,7 +6,7 @@
 package remirc;
 
 import dao.GenericDao;
-import formularios.Cadastro;
+import formularios.CadastroUsuario;
 import formularios.CadastroCidades;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
@@ -30,7 +30,7 @@ public class RemIRC {
         GenericDao g = new GenericDao();
         List<Object> l = g.listar(Estados.class);
         List<Object> le = g.listar (Cidades.class);
-        new Cadastro(l, le).setVisible(true);
+        new CadastroUsuario(l, le).setVisible(true);
         
         //new CadastroCidades(l).setVisible(true);
         

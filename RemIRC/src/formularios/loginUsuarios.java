@@ -159,7 +159,7 @@ public class loginUsuarios extends javax.swing.JFrame {
                 }
                     
                 } catch (NoSuchAlgorithmException ex) {
-                    Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
                 
