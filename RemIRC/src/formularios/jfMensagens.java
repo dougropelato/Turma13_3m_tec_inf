@@ -120,7 +120,6 @@ public class jfMensagens extends javax.swing.JFrame {
 
         jLstatus.setText("0");
 
-        jLicon.setIcon(http://pre14.deviantart.net/c047/th/pre/f/2011/046/8/0/macac_by_benegg1-d39mfav.jpg);
         jLicon.setText("icon");
 
         jLusuario.setText("usuario");
@@ -177,6 +176,7 @@ public class jfMensagens extends javax.swing.JFrame {
     private void jTFmensagemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFmensagemKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
             Calendar c = Calendar.getInstance();
+            System.out.println(c.get(Calendar.DATE));
             System.out.println(c.get(Calendar.DAY_OF_MONTH)+"/"+((c.get(Calendar.MONTH))+1)+"/"+c.get(Calendar.YEAR));
             System.out.println(""+c.get(Calendar.HOUR_OF_DAY)+":"+c.get(Calendar.MINUTE));
             
@@ -188,12 +188,16 @@ public class jfMensagens extends javax.swing.JFrame {
                 m.setCodigo_salas(codigo_salas);
                 m.setCodigo_usuarios_destino(codigo_salas);
                 m.setCodigo_usuarios_origem(codigo_usuarios);
-                m.setData_envio_mensagens(c.get(Calendar.DAY_OF_MONTH)+"/"+c.get(Calendar.MONTH)+"/"+c.get(Calendar.YEAR));
-                m.setHora_envio_mensagens(""+c.get(Calendar.HOUR_OF_DAY));
-               
+                m.setData_envio_mensagens(c.get(Calendar.DAY_OF_MONTH)+"/"+((c.get(Calendar.MONTH))+1)+"/"+c.get(Calendar.YEAR));
+                m.setHora_envio_mensagens(""+c.get(Calendar.HOUR_OF_DAY)+":"+c.get(Calendar.MINUTE));
+                gd.adicionar(m);
             } catch (SQLException ex) {
                 Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalArgumentException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
                 Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
             }
             /*chat = chat+"\r\n"+usuario+" : "+jTFmensagem.getText();
@@ -254,7 +258,8 @@ public class jfMensagens extends javax.swing.JFrame {
                     for(Object l : lista){
                         Mensagens m = (Mensagens) l;
                         if(m.getCodigo_salas()==codigo_salas){
-                            chat = chat+m.getmensagens();
+                            chat = chat+m.getData_envio_mensagens();
+                            chat = chat+"\r\n"+m.getmensagens();
                         }
                     }
                     jTAsala.setText(chat);
