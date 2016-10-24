@@ -1,7 +1,7 @@
 package tabelas;
 
 public class Usuarios {
-    
+
     int codigo_usuarios;
     String nome_usuarios;
     String email_usuarios;
@@ -55,14 +55,6 @@ public class Usuarios {
         this.foto_usuarios = foto_usuarios;
     }
 
-    public String getSexo_usuarios() {
-        return sexo_usuarios;
-    }
-
-    public void setSexo_usuarios(String sexo_usuarios) {
-        this.sexo_usuarios = sexo_usuarios;
-    }
-
     public int getIdade_usuarios() {
         return idade_usuarios;
     }
@@ -110,5 +102,12 @@ public class Usuarios {
     public void setCodigo_estados(int codigo_estados) {
         this.codigo_estados = codigo_estados;
     }
-    
+
+    public String getSexo_usuarios() {
+        return sexo_usuarios;
+    }
+
+    public void setSexo_usuarios(String sexo_usuarios) {
+        this.sexo_usuarios = sexo_usuarios;
+    }
 }

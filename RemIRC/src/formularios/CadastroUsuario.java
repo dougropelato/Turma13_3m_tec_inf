@@ -28,7 +28,6 @@ public class CadastroUsuario extends javax.swing.JFrame {
         montaCombo(l, le);
     }
 
-    int sexo;
     int idade;
 
     @SuppressWarnings("unchecked")
@@ -394,7 +393,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
         u.setCodigo_cidades(jcCi.getSelectedIndex() + 1);
         u.setCodigo_estados(jcEc.getSelectedIndex() + 1);
         u.setIdade_usuarios(jcId.getSelectedIndex() + 13);
-        u.setSexo_usuarios(jcSe.getName());
+        String seo = jcSe.getName();
+        u.setSexo_usuarios(seo);
 
         if (jtNo.getText().isEmpty() || jtAp.getText().isEmpty() || sen.isEmpty() || rsen.isEmpty() || jtEm.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Algum campo obrigatório está vazio!", " Ops!", 0);
@@ -416,7 +416,6 @@ public class CadastroUsuario extends javax.swing.JFrame {
             }
 
             JOptionPane.showMessageDialog(null, "Você foi cadastrado com sucesso, muito obrigado!", " Sucesso!", 1);
-
         }
 
     }//GEN-LAST:event_jbCaActionPerformed
@@ -473,9 +472,6 @@ public class CadastroUsuario extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         java.awt.EventQueue.invokeLater(new Runnable() {
