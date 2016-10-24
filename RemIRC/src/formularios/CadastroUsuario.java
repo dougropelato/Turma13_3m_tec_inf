@@ -10,11 +10,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import tabelas.Cidades;
 import tabelas.Estados;
 import tabelas.Usuarios;
-import tabelas.login_usuarios;
 
 public class CadastroUsuario extends javax.swing.JFrame {
 
