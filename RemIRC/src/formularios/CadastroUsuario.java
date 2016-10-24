@@ -393,7 +393,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
         u.setCodigo_cidades(jcCi.getSelectedIndex() + 1);
         u.setCodigo_estados(jcEc.getSelectedIndex() + 1);
         u.setIdade_usuarios(jcId.getSelectedIndex() + 13);
-        String seo = jcSe.getName();
+        String seo = jcSe.getSelectedItem().toString();
+        System.out.println(seo);
         u.setSexo_usuarios(seo);
 
         if (jtNo.getText().isEmpty() || jtAp.getText().isEmpty() || sen.isEmpty() || rsen.isEmpty() || jtEm.getText().isEmpty()) {
