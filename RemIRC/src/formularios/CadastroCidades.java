@@ -34,11 +34,15 @@ public class CadastroCidades extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jbAlterar = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jtfCodigoCidade = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
         getContentPane().add(jtfNomeCidade);
-        jtfNomeCidade.setBounds(100, 10, 110, 20);
+        jtfNomeCidade.setBounds(110, 40, 110, 20);
 
         jcEc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,15 +50,15 @@ public class CadastroCidades extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jcEc);
-        jcEc.setBounds(100, 40, 110, 20);
+        jcEc.setBounds(110, 70, 110, 20);
 
         jLabel1.setText("Cidade:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(30, 14, 60, 14);
+        jLabel1.setBounds(40, 40, 60, 20);
 
         jLabel3.setText("Estado:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(30, 40, 60, 20);
+        jLabel3.setBounds(40, 70, 60, 20);
 
         jButton1.setText("Adicionar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +67,26 @@ public class CadastroCidades extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(90, 90, 90, 23);
+        jButton1.setBounds(20, 100, 80, 23);
+
+        jbAlterar.setText("Alterar");
+        jbAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAlterarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbAlterar);
+        jbAlterar.setBounds(100, 100, 80, 23);
+
+        jButton3.setText("Excluir");
+        getContentPane().add(jButton3);
+        jButton3.setBounds(180, 100, 63, 23);
+        getContentPane().add(jtfCodigoCidade);
+        jtfCodigoCidade.setBounds(110, 10, 110, 20);
+
+        jLabel2.setText("Código Cid.:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(20, 10, 60, 20);
 
         pack();
         setLocationRelativeTo(null);
@@ -94,6 +117,10 @@ public class CadastroCidades extends javax.swing.JFrame {
     private void jcEcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcEcActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcEcActionPerformed
+
+    private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
+    
+    }//GEN-LAST:event_jbAlterarActionPerformed
 
     public static void main(String args[]) {
         
@@ -130,9 +157,13 @@ public class CadastroCidades extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton jbAlterar;
     private javax.swing.JComboBox<String> jcEc;
+    private javax.swing.JTextField jtfCodigoCidade;
     private javax.swing.JTextField jtfNomeCidade;
     // End of variables declaration//GEN-END:variables
 
