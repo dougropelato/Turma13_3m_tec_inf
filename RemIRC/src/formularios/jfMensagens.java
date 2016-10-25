@@ -15,7 +15,9 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import tabelas.Mensagens;
+import tabelas.UsuarioSalas;
 import tabelas.Usuarios;
 
 /**
@@ -24,9 +26,7 @@ import tabelas.Usuarios;
  */
 public class jfMensagens extends javax.swing.JFrame {
     int codigo_usuarios;
-    String chat = "";
     int codigo_salas;
-    String usuario;
     int sair = 0;
     
     
@@ -48,7 +48,7 @@ public class jfMensagens extends javax.swing.JFrame {
              for(Object l : lista){
                 Usuarios u = (Usuarios) l;
                 if(u.getCodigo_usuarios()==codigo_usuarios){
-                    usuario = u.getApelido_usuarios();
+                    jLusuario.setText(u.getApelido_usuarios());
                     
                 }
             Thread p = new Thread(new Processo(), "Atualizar");
@@ -134,18 +134,18 @@ public class jfMensagens extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTFmensagem)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLicon)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLusuario))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLicon)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLusuario))
                             .addComponent(jLsala))
-                        .addGap(0, 25, Short.MAX_VALUE)))
+                        .addGap(0, 372, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -176,10 +176,6 @@ public class jfMensagens extends javax.swing.JFrame {
     private void jTFmensagemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFmensagemKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
             Calendar c = Calendar.getInstance();
-            System.out.println(c.get(Calendar.DATE));
-            System.out.println(c.get(Calendar.DAY_OF_MONTH)+"/"+((c.get(Calendar.MONTH))+1)+"/"+c.get(Calendar.YEAR));
-            System.out.println(""+c.get(Calendar.HOUR_OF_DAY)+":"+c.get(Calendar.MINUTE));
-            
             
             try {
                 GenericDao gd = new GenericDao();
@@ -190,20 +186,15 @@ public class jfMensagens extends javax.swing.JFrame {
                 m.setCodigo_usuarios_origem(codigo_usuarios);
                 m.setData_envio_mensagens(c.get(Calendar.DAY_OF_MONTH)+"/"+((c.get(Calendar.MONTH))+1)+"/"+c.get(Calendar.YEAR));
                 m.setHora_envio_mensagens(""+c.get(Calendar.HOUR_OF_DAY)+":"+c.get(Calendar.MINUTE));
-                gd.adicionar(m);
+                //gd.adicionar(m);
             } catch (SQLException ex) {
                 Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalArgumentException ex) {
                 Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
             }
-            /*chat = chat+"\r\n"+usuario+" : "+jTFmensagem.getText();
-            jTAsala.setText(chat);
-            jTFmensagem.setText("");
-            jLusuario.setText(usuario);*/
+            
         }
     }//GEN-LAST:event_jTFmensagemKeyPressed
 
@@ -253,12 +244,37 @@ public class jfMensagens extends javax.swing.JFrame {
                 GenericDao gd = new GenericDao();
                 while(sair==0){
                     Thread.sleep(1000);
+                    /*List<Object> list = gd.listar(UsuarioSalas.class);
+                    int x = 0;
+                    int y = 0;
+                    for(Object o : list){
+                        UsuarioSalas us = (UsuarioSalas) o;
+                        if(us.getCodigo_salas()==codigo_salas){
+                            x++; y++;
+                            JLabel novo = new JLabel();
+                            novo.setName("jL"+x);
+                            novo.setSize((jLstatus.WIDTH+(x+4)), (jLstatus.HEIGHT+(y+4)));
+                            JLabel novo2 = new JLabel();
+                            novo2.setName("jLy"+y);
+                            novo.setSize((jLicon.WIDTH+(x+4)), (jLicon.HEIGHT+(y+4)));
+                            JLabel novo3 = new JLabel();
+                            novo3.setName("jL"+x+y);
+                            novo.setSize((jLusuario.WIDTH+(x+4)), (jLusuario.HEIGHT+(y+4)));
+                            
+                        }
+                    }*/
                     List<Object> lista = gd.listar(Mensagens.class);
                     String chat = "";
+                    String data = "";
                     for(Object l : lista){
                         Mensagens m = (Mensagens) l;
                         if(m.getCodigo_salas()==codigo_salas){
-                            chat = chat+m.getData_envio_mensagens();
+                            if(!data.equalsIgnoreCase(m.getData_envio_mensagens())){
+                                data = m.getData_envio_mensagens();
+                                chat = chat+"\r\n"+"-------------------------------------------------------";
+                                chat = chat+"\r\n"+data;                          
+                            }
+                            chat = chat+"\r\n"+"("+m.getHora_envio_mensagens()+"-"+m.getCodigo_usuarios_origem()+")";
                             chat = chat+"\r\n"+m.getmensagens();
                         }
                     }
