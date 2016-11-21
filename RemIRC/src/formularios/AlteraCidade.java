@@ -103,7 +103,7 @@ public class AlteraCidade extends javax.swing.JFrame {
              montaTabela(lista);
 
        
-            ;
+            
         } catch (SQLException ex) {
             Logger.getLogger(AlteraCidade.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {

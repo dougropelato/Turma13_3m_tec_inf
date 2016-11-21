@@ -2,6 +2,9 @@ package formularios;
 
 import dao.GenericDao;
 import java.lang.reflect.InvocationTargetException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -127,42 +130,62 @@ public class loginUsuarios extends javax.swing.JFrame {
 
     private void jbLiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLiActionPerformed
         String lo = jtNo.getText();
-        String se = jpSe.getPassword().toString();
-        
+        String se = jpSe.getText();
+        String s = se;
+        MessageDigest m;
         try {
-            
-            GenericDao gd = new GenericDao();
-            List<Object> l = gd.listar(Usuarios.class);
+
+            m = MessageDigest.getInstance("MD5");
+            m.update(s.getBytes(), 0, s.length());
+            String smd5 = new BigInteger(1, m.digest()).toString(16);
+
+            try {
+
+                GenericDao gd = new GenericDao();
+                List<Object> l = gd.listar(Usuarios.class);
                 for (Object o : l) {
                     Usuarios us = (Usuarios) o;
-                    
+
                     String loc = us.getEmail_usuarios();
                     String noc = us.getNome_usuarios();
                     String sec = us.getSenha_usuarios();
+
+                    System.out.print(noc);
+                    System.out.println(lo);
                     
-                    if ((lo==loc) || (lo==noc) && se == sec){
+                    System.out.print(smd5 + " ");
+                    System.out.println(sec);
+                    
+                    if (lo.equalsIgnoreCase(noc) && smd5.equals(sec)) {
+
+                        System.out.println("testeeeeeeeeeee");
                         String cons = loc;
                         new Menu(cons).setVisible(true);
+
                     }
-                    
                 }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(loginUsuarios.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(loginUsuarios.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(loginUsuarios.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NoSuchMethodException ex) {
-            Logger.getLogger(loginUsuarios.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalArgumentException ex) {
-            Logger.getLogger(loginUsuarios.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InvocationTargetException ex) {
-            Logger.getLogger(loginUsuarios.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(loginUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+
+            } catch (SQLException ex) {
+                Logger.getLogger(loginUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(loginUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(loginUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (NoSuchMethodException ex) {
+                Logger.getLogger(loginUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalArgumentException ex) {
+                Logger.getLogger(loginUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InvocationTargetException ex) {
+                Logger.getLogger(loginUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(loginUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(CadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-                  
+
+
     }//GEN-LAST:event_jbLiActionPerformed
 
     private void jbLi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLi1ActionPerformed
@@ -170,15 +193,15 @@ public class loginUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jbLi1ActionPerformed
 
     private void jbLi2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLi2ActionPerformed
-        
+
         GenericDao g;
         try {
-            
+
             g = new GenericDao();
             List<Object> l = g.listar(Estados.class);
             List<Object> le = g.listar(Cidades.class);
             new CadastroUsuario(l, le).setVisible(true);
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(loginUsuarios.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {

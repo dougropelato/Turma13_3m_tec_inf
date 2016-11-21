@@ -7,7 +7,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     Menu(String cons) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        initComponents();
     }
 
     @SuppressWarnings("unchecked")
