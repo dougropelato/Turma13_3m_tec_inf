@@ -186,12 +186,14 @@ public class jfMensagens extends javax.swing.JFrame {
                 m.setCodigo_usuarios_origem(codigo_usuarios);
                 m.setData_envio_mensagens(c.get(Calendar.DAY_OF_MONTH)+"/"+((c.get(Calendar.MONTH))+1)+"/"+c.get(Calendar.YEAR));
                 m.setHora_envio_mensagens(""+c.get(Calendar.HOUR_OF_DAY)+":"+c.get(Calendar.MINUTE));
-                //gd.adicionar(m);
+                gd.adicionar(m);
             } catch (SQLException ex) {
                 Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalArgumentException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
                 Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
             }
             
@@ -274,7 +276,7 @@ public class jfMensagens extends javax.swing.JFrame {
                                 chat = chat+"\r\n"+"-------------------------------------------------------";
                                 chat = chat+"\r\n"+data;                          
                             }
-                            chat = chat+"\r\n"+"("+m.getHora_envio_mensagens()+"-"+m.getCodigo_usuarios_origem()+")";
+                            chat = chat+"\r\n"+"("+m.getHora_envio_mensagens()+"-"+getusuario(m.getCodigo_usuarios_origem())+")";
                             chat = chat+"\r\n"+m.getmensagens();
                         }
                     }
@@ -308,6 +310,38 @@ public class jfMensagens extends javax.swing.JFrame {
         }
             
     }
+     private String getusuario(int codigo_usuarios_origem) {
+            String nameusuario = "";
+            GenericDao g;
+            try {
+                g = new GenericDao();
+                List<Object> lista = g.listar(Usuarios.class);
+                for(Object l : lista){
+                   Usuarios u = (Usuarios) l;
+                   if(u.getCodigo_usuarios()==codigo_usuarios){
+                       nameusuario = u.getApelido_usuarios();
+
+                   }
+ 
+               }
+            } catch (SQLException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (NoSuchMethodException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalArgumentException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InvocationTargetException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+             return nameusuario;
+        }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
