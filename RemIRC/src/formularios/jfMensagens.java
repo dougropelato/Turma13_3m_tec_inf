@@ -182,16 +182,19 @@ public class jfMensagens extends javax.swing.JFrame {
                 Mensagens m = new Mensagens();
                 m.setmensagens(jTFmensagem.getText());
                 m.setCodigo_salas(codigo_salas);
-                m.setCodigo_usuarios_destino(codigo_salas);
+                m.setCodigo_usuarios_destino(codigo_usuarios);
                 m.setCodigo_usuarios_origem(codigo_usuarios);
                 m.setData_envio_mensagens(c.get(Calendar.DAY_OF_MONTH)+"/"+((c.get(Calendar.MONTH))+1)+"/"+c.get(Calendar.YEAR));
-                m.setHora_envio_mensagens(""+c.get(Calendar.HOUR_OF_DAY)+":"+c.get(Calendar.MINUTE));
-                //gd.adicionar(m);
+                m.setHora_envio_mensagens(c.get(Calendar.HOUR_OF_DAY)+":"+c.get(Calendar.MINUTE));
+                
+                gd.adicionar(m);
             } catch (SQLException ex) {
                 Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalArgumentException ex) {
+                Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
                 Logger.getLogger(jfMensagens.class.getName()).log(Level.SEVERE, null, ex);
             }
             
