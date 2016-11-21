@@ -6,6 +6,10 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
     }
 
+    Menu(String cons) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

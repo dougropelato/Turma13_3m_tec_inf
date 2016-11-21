@@ -416,6 +416,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null, "Você foi cadastrado com sucesso, muito obrigado!", " Sucesso!", 1);
         }
+        new loginUsuarios().setVisible(true);
+        this.dispose();
 
     }//GEN-LAST:event_jbCaActionPerformed
 
