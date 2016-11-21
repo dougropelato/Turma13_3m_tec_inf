@@ -129,6 +129,10 @@ public class loginUsuarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbLiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLiActionPerformed
+    if (jtNo.getText().isEmpty() || jpSe.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null, "Algum dos campos deve estar vazio!", " Oops!", 0);
+    } else {
+        
         String lo = jtNo.getText();
         String se = jpSe.getText();
         String s = se;
@@ -156,7 +160,7 @@ public class loginUsuarios extends javax.swing.JFrame {
                     System.out.print(smd5 + " ");
                     System.out.println(sec);
                     
-                    if (lo.equalsIgnoreCase(noc) && smd5.equals(sec)) {
+                    if ((lo.equals(noc) || lo.equals(loc)) && smd5.equals(sec)) {
 
                         System.out.println("testeeeeeeeeeee");
                         String cons = loc;
@@ -184,7 +188,7 @@ public class loginUsuarios extends javax.swing.JFrame {
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(CadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+    }
 
     }//GEN-LAST:event_jbLiActionPerformed
 
