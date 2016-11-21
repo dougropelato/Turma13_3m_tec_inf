@@ -162,9 +162,9 @@ public class loginUsuarios extends javax.swing.JFrame {
                     
                     if ((lo.equals(noc) || lo.equals(loc)) && smd5.equals(sec)) {
 
-                        System.out.println("testeeeeeeeeeee");
+                        System.out.println("testeeeeeee");
                         String cons = loc;
-                        new Menu(cons).setVisible(true);
+                        new jfMensagens(us.getCodigo_usuarios(),2).setVisible(true);
 
                     }
                 }
