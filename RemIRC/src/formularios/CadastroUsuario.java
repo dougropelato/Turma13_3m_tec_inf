@@ -550,6 +550,5 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 jcCi.addItem(x);
             }
         }
-
     }
 }
