@@ -3,6 +3,7 @@ package formularios;
 import dao.GenericDao;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -13,16 +14,11 @@ import tabelas.Estados;
 
 public class CadastroCidades extends javax.swing.JFrame {
 
-    public CadastroCidades(){
+    public CadastroCidades() throws SQLException, ClassNotFoundException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException, InstantiationException{
         initComponents();
-    }
-
-    public CadastroCidades(List<Object> l) {
-        
-        initComponents();
+        GenericDao gd = new GenericDao();
+        List<Object> l = gd.listar(Estados.class);
         montaCombo(l);
-        centralizarForm();
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -158,7 +154,7 @@ public class CadastroCidades extends javax.swing.JFrame {
     
     }//GEN-LAST:event_jbAlterarActionPerformed
 
-    public static void main(String args[]) {
+    public static void main(String args[]){
         
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -185,7 +181,23 @@ public class CadastroCidades extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 
+                try {
                     new CadastroCidades().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(CadastroCidades.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(CadastroCidades.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(CadastroCidades.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (NoSuchMethodException ex) {
+                    Logger.getLogger(CadastroCidades.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalArgumentException ex) {
+                    Logger.getLogger(CadastroCidades.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InvocationTargetException ex) {
+                    Logger.getLogger(CadastroCidades.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(CadastroCidades.class.getName()).log(Level.SEVERE, null, ex);
+                }
                     
             }
         });
@@ -219,10 +231,5 @@ public class CadastroCidades extends javax.swing.JFrame {
             }
         }
         
-    }
-    private void centralizarForm() {
-        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
-        Dimension dw = getSize();
-        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
     }
 }
