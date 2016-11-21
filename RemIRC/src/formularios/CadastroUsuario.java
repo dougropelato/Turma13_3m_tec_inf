@@ -382,13 +382,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
             } catch (NoSuchAlgorithmException ex) {
                 Logger.getLogger(CadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "As senhas não conferem!", " Ops!", 0);
-            jpRs.setText("");
-            jpSe.setText("");
-        }
-
-        u.setCodigo_cidades(jcCi.getSelectedIndex() + 1);
+            
+            u.setCodigo_cidades(jcCi.getSelectedIndex() + 1);
         u.setCodigo_estados(jcEc.getSelectedIndex() + 1);
         u.setIdade_usuarios(jcId.getSelectedIndex() + 13);
         String seo = jcSe.getSelectedItem().toString();
@@ -418,6 +413,12 @@ public class CadastroUsuario extends javax.swing.JFrame {
         }
         new loginUsuarios().setVisible(true);
         this.dispose();
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "As senhas não conferem!", " Ops!", 0);
+            jpRs.setText("");
+            jpSe.setText("");
+        }
 
     }//GEN-LAST:event_jbCaActionPerformed
 
