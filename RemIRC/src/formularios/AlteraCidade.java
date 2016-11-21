@@ -96,7 +96,7 @@ public class AlteraCidade extends javax.swing.JFrame {
     private void jtfPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfPesquisaActionPerformed
         try { 
         GenericDao g = new GenericDao();
-            Cidades m = new Cidades();
+            Cidades c = new Cidades();
 
             List<Object> lista = g.listar(Cidades.class);
             
@@ -189,15 +189,7 @@ public class AlteraCidade extends javax.swing.JFrame {
             for (int x = 0; x < l.size(); x++) { // 
                 Cidades p = (Cidades) l.get(x);
                                 
-                if (!jtfPesquisa.getText().equals("")) {
-                    int karakas = Integer.parseInt(jtfPesquisa.getText());
-                    if (p.getCodigo_Cidades() == karakas) {
-                        dtmTabela.addRow(linha);
-                        dtmTabela.setValueAt(p.getNome_Cidades(), i, 1);
-                        dtmTabela.setValueAt(p.getCodigo_Estados(), i, 2);
-                        i++;
-                    }
-                } else {
+                if (!jtfPesquisa.getText().equals("")){
                     dtmTabela.addRow(linha);
                     dtmTabela.setValueAt(p.getNome_Cidades(), x, 1);
                     dtmTabela.setValueAt(p.getCodigo_Estados(), x, 2);
