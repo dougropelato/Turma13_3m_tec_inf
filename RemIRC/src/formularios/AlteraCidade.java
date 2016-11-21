@@ -5,7 +5,12 @@
  */
 package formularios;
 
+import dao.GenericDao;
+import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import tabelas.Cidades;
@@ -79,8 +84,8 @@ public class AlteraCidade extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jtfPesquisa)
                 .addGap(29, 29, 29))
         );
@@ -89,8 +94,41 @@ public class AlteraCidade extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtfPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfPesquisaActionPerformed
-        int d = jtTabela.getSelectedRow();
-      String e = jtTabela.getValueAt(d, NORMAL).toString();
+        try { 
+        GenericDao g = new GenericDao();
+            Cidades m = new Cidades();
+
+            List<Object> lista = g.listar(Cidades.class);
+            
+             montaTabela(lista);
+
+       
+            ;
+        } catch (SQLException ex) {
+            Logger.getLogger(AlteraCidade.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(AlteraCidade.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(AlteraCidade.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(AlteraCidade.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvocationTargetException ex) {
+            Logger.getLogger(AlteraCidade.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(AlteraCidade.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AlteraCidade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+            
+        
+        
+        
+        
+        
+        
+        //int d = jtTabela.getSelectedRow();
+      //String e = jtTabela.getValueAt(d, NORMAL).toString();
     }//GEN-LAST:event_jtfPesquisaActionPerformed
 
     /**
